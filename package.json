@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "@alch/alchemy-web3": "^1.2.5",
+    "@types/node": "^12.20.46",
+    "async-blocking-queue": "^1.0.1",
+    "ethers": "^5.5.4",
+    "promise-blocking-queue": "^0.1.0",
+    "queue-typescript": "^1.0.1",
+    "ts-node": "^10.6.0",
+    "tslog": "^3.3.2",
+    "web3": "^1.7.1"
+  }
+}
