@@ -59,8 +59,8 @@ It would be nice in the future to also reproduce these 2020 benchmarks:
 
 1. Blocknative's [locally missed mempool txs benchmark](https://www.blocknative.com/blog/8-lesson-master-the-mempool#:~:text=7.%20Mempools%20Miss%20Transactions)
 
-<img src="images/blocknative_mempool_missed_txs.webp" width="35%">
+<img src="images/blocknative_mempool_missed_txs.webp" width="70%">
 
 2. Makerdao's [mempool latency benchmark](https://blog.keeperdao.com/a-performance-benchmark-on-mempool-services/#:~:text=address%20of%20interest.-,Performance%20Benchmark,-We%E2%80%99ve%20used%20all)
 
-<img src="images/makerdao_mempool_latency_benchmark.png" width="50%">
+<img src="images/makerdao_mempool_latency_benchmark.png" width="70%">
