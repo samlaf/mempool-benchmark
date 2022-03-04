@@ -6,7 +6,7 @@ Different ways to [listen to incoming mempool txs](https://chainstack.com/explor
 - Txpool api (probably useless since keep receiving same txs)
 - Graphql api (eip-1767, not thegraph! can subscribe + filter, as opposed to subscribe + querytx + filter locally with subscription model)
 
-None of the free node providers have a graphql endpoint unfortunately. filters and txpools are not ideal for mev, so we will focus on subscriptions.
+None of the free node providers have a graphql endpoint unfortunately. filters and txpools are only for one-off queries, so we will focus on subscriptions.
 
 ## ==================== **Subscriptions** ==================
 There are 3 levels of subscription:
@@ -42,17 +42,29 @@ web3.eth.subscribe(
 ```
 ## ==================== **Benchmarks** ==================
 
-1. Alchemy's fullTxs api
+0. setup
 ```
-> ts-node alchemyFullTxStats.ts
-numTxs: 1377, numTxsAlreadyMined: 340 (24.7%), numTxsNotFound: 484 (35.1%)
-...
-numTxs: 5053, numTxsAlreadyMined: 1253 (24.8%), numTxsNotFound: 1968 (38.9%)
-...
+npm i
+export ALCHEMY_WSS_ENDPOINT=...
+```
+
+1. run Alchemy fullTxs api benchmark
+```
+> npx ts-node alchemyFullTxStats.ts
 ```
 This prints summary statistics for how many (what %) of txs received from Alchemy were
 - already mined (numTxsAlreadyMined)
 - not found when queried a second time (numTxsNotFound)
+
+### RESULTS
+```
+// POLYGON MAINNET
+numTxs: 1377, numTxsAlreadyMined: 340 (24.7%), numTxsNotFound: 484 (35.1%)
+numTxs: 5053, numTxsAlreadyMined: 1253 (24.8%), numTxsNotFound: 1968 (38.9%)
+// ETHEREUM MAINNET
+numTxs: 3750, numTxsAlreadyMined: 0 (0.0%), numTxsNotFound: 2769 (73.8%)
+numTxs: 8063, numTxsAlreadyMined: 0 (0.0%), numTxsNotFound: 6172 (76.5%)
+```
 
 ## FUTURE
 It would be nice in the future to also reproduce these 2020 benchmarks:
